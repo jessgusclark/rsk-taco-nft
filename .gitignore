@@ -1,1 +1,6 @@
 node_modules
+.testnet.seed-phrase
+.minimum-gas-price-testnet.json
+artifacts/
+cache/
+contracts/
