@@ -1,0 +1,10 @@
+{
+  "name": "jesse-nft",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Jesse Clark <hello@developerjesse.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "hardhat": "^2.8.2"
+  }
+}
