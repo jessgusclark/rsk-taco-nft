@@ -7,8 +7,11 @@ async function getOwnerOf(index) {
   const contractAddress = '0xe5eb362daf73d4c16b306342c64055fbaa6cd54c'
   const contract = new ethers.Contract(contractAddress, abi, provider);
 
-  const result = await contract.ownerOf(index.toString())
-  console.log(result)
+  const owner = await contract.ownerOf(index.toString())
+  console.log(`Owner: ${owner}`)
+
+  const uri = await contract.tokenURI(index.toString())
+  console.log(`URI: ${uri}`)
 }
 
 getOwnerOf(1)
