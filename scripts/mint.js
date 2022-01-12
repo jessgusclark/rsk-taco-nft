@@ -1,9 +1,10 @@
 const { ethers } = require('ethers')
 
-async function mint() {
+async function mint(recipient, index) {
   const privateKey = ''
 
-  console.log('starting...')
+  console.log(`Minting taco #${index} to ${recipient}...`);
+
   const provider = await new ethers.providers.JsonRpcProvider('https://public-node.testnet.rsk.co')
   const signer = await new ethers.Wallet( privateKey, provider )
 
@@ -15,11 +16,11 @@ async function mint() {
   const contract = new ethers.Contract(contractAddress, abi, signer);
 
   const result = await contract.mintNFT(
-    '0x3dd03d7d6c3137f1eb7582ba5957b8a2e26f304a',
-    'https://raw.githubusercontent.com/jessgusclark/rsk-taco-nft/main/metadata/taco1.json'
+    recipient,
+    `https://raw.githubusercontent.com/jessgusclark/rsk-taco-nft/main/metadata/taco${index}.json`
   )
 
   console.log(result)
 }
 
-// mint()
+mint('0xa88dcbb2cd833e359c562b46f90772a82c9a5249', 2)
