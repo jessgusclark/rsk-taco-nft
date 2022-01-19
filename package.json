@@ -4,6 +4,10 @@
   "main": "index.js",
   "author": "Jesse Clark <hello@developerjesse.com>",
   "license": "MIT",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "deploy": "npx hardhat run --network rsktestnet scripts/deploy.js"
+  },
   "devDependencies": {
     "@nomiclabs/hardhat-ethers": "^2.0.4",
     "@nomiclabs/hardhat-waffle": "^2.0.1",
