@@ -1,19 +1,20 @@
 const { ethers } = require('ethers')
 const contractInfo = require('../contract.json')
+// import contract from '../contract.json'
 
-async function getOwnerOf(index) {
-  console.log('starting...')
+async function total () {
+  console.log('getting total...')
+
   const provider = await new ethers.providers.JsonRpcProvider('https://public-node.testnet.rsk.co')
+
   const abi = require('../artifacts/contracts/MyNFT.sol/MyNFT.json').abi
   const contractAddress = contractInfo.address.toLowerCase()
+  // console.log(contractAddress)
   const contract = new ethers.Contract(contractAddress, abi, provider);
 
-  console.log('Contract setup')
-  const owner = await contract.ownerOf(index.toString())
-  console.log(`Owner: ${owner}`)
+  const total = await contract.getTotal()
 
-  const uri = await contract.tokenURI(index.toString())
-  console.log(`URI: ${uri}`)
+  console.log(total.toNumber())
 }
 
-getOwnerOf(0)
+total()

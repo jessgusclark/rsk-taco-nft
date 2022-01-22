@@ -11,7 +11,7 @@ contract MyNFT is ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _tokenIds;
 
-    constructor() public ERC721("MyTacoNFT", "TACO") {}
+    constructor() ERC721("Digital Tacos", "TACO") {}
 
     function mintNFT(address recipient, string memory tokenURI)
         public onlyOwner
@@ -24,5 +24,9 @@ contract MyNFT is ERC721URIStorage, Ownable {
         _setTokenURI(newItemId, tokenURI);
 
         return newItemId;
+    }
+
+    function getTotal() public view returns (uint256) {
+        return _tokenIds.current();
     }
 }

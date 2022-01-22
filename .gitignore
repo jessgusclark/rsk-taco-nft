@@ -4,3 +4,4 @@ node_modules
 .minimum-gas-price-testnet.json
 artifacts/
 cache/
+contract.json
