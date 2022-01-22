@@ -1,4 +1,5 @@
 const { ethers } = require('ethers')
+const contractInfo = require('../contract.json')
 
 async function mint(recipient, index) {
   const privateKey = ''
@@ -11,7 +12,7 @@ async function mint(recipient, index) {
   console.log('signer address:', signer.address)
 
   const abi = require('../artifacts/contracts/MyNFT.sol/MyNFT.json').abi
-  const contractAddress = '0xe5eb362daf73d4c16b306342c64055fbaa6cd54c'
+  const contractAddress = contractInfo.address.toLowerCase()
 
   const contract = new ethers.Contract(contractAddress, abi, signer);
 
@@ -23,4 +24,4 @@ async function mint(recipient, index) {
   console.log(result)
 }
 
-mint('0xa88dcbb2cd833e359c562b46f90772a82c9a5249', 2)
+mint('0x3Dd03d7d6c3137f1Eb7582Ba5957b8A2e26f304A', 0)
